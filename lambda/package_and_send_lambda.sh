@@ -9,4 +9,5 @@ cd ..
 
 aws lambda update-function-code --function-name $2 --zip-file fileb://package.zip --profile cewdyn
 
+rm -rf $1/deps/*
 rm package.zip
