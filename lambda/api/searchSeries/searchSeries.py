@@ -68,16 +68,21 @@ def handler(event, context):
 
     print ("Got {} hits".format(results["hits"]["total"]))
 
+
+    # Add the search results to the response
+    resultsString = json.dumps(results.to_dict())
+
     # Create the response and add some extra content to support CORS
     response = {
         "statusCode": 200,
         "headers": {
             "Access-Control-Allow-Origin": '*'
+            "Content-Type":"application/json",
+            "Content-Length": str(len(resultsString))
         },
         "isBase64Encoded": False
+        "body" : resultsString
     }
 
-    # Add the search results to the response
-    response['body'] = json.dumps(results.to_dict())
 
     return response

@@ -77,7 +77,7 @@ def getAnimeForYear(year):
         logging.info("Results found of length {}".format(len(results["anime"])))
         logging.debug("Resulst found are: {}".format(results))
         yearOfAnime = yearOfAnime + processData(results["anime"])
-        sleep(3)
+        sleep(30)
 
     return yearOfAnime
 
